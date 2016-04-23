@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     Matchup.where("player_one_id = ? OR player_two_id = ?", self.id, self.id)
   end
 
-  def specific_matchup(id)
-    matchups.where("player_one_id = ? OR player_two_id = ?", id, id).first
+  def specific_matchup(opponent_id)
+    matchups.where("player_one_id = ? OR player_two_id = ?", opponent_id, opponent_id).first
   end
 end
