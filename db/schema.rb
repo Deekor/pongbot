@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423052722) do
+ActiveRecord::Schema.define(version: 20160423060637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matchups", force: :cascade do |t|
+    t.integer  "player_one_id"
+    t.integer  "player_two_id"
+    t.integer  "player_one_score"
+    t.integer  "player_two_score"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "slack_id"

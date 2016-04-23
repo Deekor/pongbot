@@ -2,6 +2,7 @@ class BotController < ApplicationController
   before_filter :check_token
 
   def respond
+    CommandHandler.new(params)
     render json: { text: "Hello World" }
   end
 
