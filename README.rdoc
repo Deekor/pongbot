@@ -1,3 +1,0 @@
-== PongBot
-
-Ping Pong Scrorekeeping bot built for Slack.
