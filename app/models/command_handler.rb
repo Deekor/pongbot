@@ -6,7 +6,11 @@ class CommandHandler
 
   # The response to the command given
   def response
-    action.classify.constantize.new(@params).respond
+    begin
+      action.classify.constantize.new(@params).respond
+    rescue
+      { text: ":warning: Whoops! Looks like something went wrong. Did you type the command right?", response_type: "ephemeral" }
+    end
   end
 
   private
