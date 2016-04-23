@@ -7,7 +7,7 @@ class Victory < CommandBase
       matchup = Matchup.create(player_one_id: @winner.id, player_two_id: @loser.id)
     end
     matchup.victory_for(@winner.id)
-    { text: ":trumpet: *Trumpets Playing* :trumpet: \n Hear ye! Hear ye! I would like to announce the victory of <@#{@winner.slack_id}> over <@#{@loser.slack_id}> \n #{matchup.series_status}"}
+    { response_type: "in_channel", text: ":trumpet: *Trumpets Playing* :trumpet: \n Hear ye! Hear ye! I would like to announce the victory of <@#{@winner.slack_id}> over <@#{@loser.slack_id}> \n #{matchup.series_status}"}
   end
 
   def get_users
