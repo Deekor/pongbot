@@ -19,11 +19,16 @@ ActiveRecord::Schema.define(version: 20160423060637) do
   create_table "matchups", force: :cascade do |t|
     t.integer  "player_one_id"
     t.integer  "player_two_id"
-    t.integer  "player_one_score"
-    t.integer  "player_two_score"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "player_one_score", default: 0
+    t.integer  "player_two_score", default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
+
+  add_index "matchups", ["player_one_id"], name: "index_matchups_on_player_one_id", using: :btree
+  add_index "matchups", ["player_one_score"], name: "index_matchups_on_player_one_score", using: :btree
+  add_index "matchups", ["player_two_id"], name: "index_matchups_on_player_two_id", using: :btree
+  add_index "matchups", ["player_two_score"], name: "index_matchups_on_player_two_score", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "slack_id"

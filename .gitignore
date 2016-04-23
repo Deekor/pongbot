@@ -14,3 +14,5 @@
 
 # ignore rubymine
 .idea/*
+
+.byebug_history
